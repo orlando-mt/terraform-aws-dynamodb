@@ -7,7 +7,8 @@ Terraform module to create multiple Amazon DynamoDB tables from a single map def
 - Multiple tables per module call (`for_each` map)
 - Both billing modes: PAY_PER_REQUEST and PROVISIONED
 - Global and Local Secondary Indexes with configurable projections
-- TTL, DynamoDB Streams, point-in-time recovery, table class and deletion protection
+- TTL, DynamoDB Streams, table class and deletion protection
+- **Point-in-time recovery enabled by default** — a table deleted or corrupted without it cannot be recovered
 - Global tables (cross-region replicas) with optional per-region KMS keys
 - Server-side encryption (AWS-owned or customer KMS key)
 - Target-tracking auto scaling for read/write capacity on PROVISIONED tables
@@ -90,8 +91,8 @@ The table resource sets `ignore_changes` on `read_capacity` / `write_capacity` s
 | global_secondary_indexes | GSI list | `[]` |
 | local_secondary_indexes | LSI list | `[]` |
 | stream_enabled / stream_view_type | Streams | `false` / `NEW_AND_OLD_IMAGES` |
-| point_in_time_recovery | Enable PITR | `false` |
-| encryption_enabled / kms_key_arn | SSE configuration | `true` / `null` |
+| point_in_time_recovery | Enable PITR | `true` |
+| encryption_enabled / kms_key_arn | SSE configuration (null = AWS owned key) | `true` / `null` |
 | replicas | Global table replicas | `[]` |
 | autoscaling_read / autoscaling_write | Target-tracking config | `null` |
 | tags | Per-table tags | `{}` |

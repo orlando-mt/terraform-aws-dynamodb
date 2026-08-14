@@ -1,4 +1,6 @@
 resource "aws_dynamodb_table" "this" {
+  # checkov:skip=CKV_AWS_28:Point-in-time recovery defaults to true and is set per table via point_in_time_recovery. Checkov cannot resolve optional() defaults through for_each.
+  # checkov:skip=CKV_AWS_119:Tables are encrypted; a customer managed key is supplied per table via kms_key_arn (the complete example creates one and injects it). Checkov cannot resolve values passed through a local.
   # checkov:skip=CKV2_AWS_16:Auto scaling is configured via autoscaling_read/autoscaling_write on PROVISIONED tables, which creates aws_appautoscaling_target resources. Checkov cannot link those to the table through for_each.
   for_each = var.dynamodb_tables
 

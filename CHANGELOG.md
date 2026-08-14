@@ -4,7 +4,8 @@
 
 ### Added
 - Initial release: multiple DynamoDB tables from a single map definition
-- GSI/LSI, TTL, streams, global tables (replicas), PITR, SSE with
+- Point-in-time recovery enabled by default
+- GSI/LSI, TTL, streams, global tables (replicas), SSE with
   optional KMS key, table class and deletion protection
 - Target-tracking auto scaling for read/write capacity on PROVISIONED tables
 - Extensive cross-field input validations (capacity vs billing mode,

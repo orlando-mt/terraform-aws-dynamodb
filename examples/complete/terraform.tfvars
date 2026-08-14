@@ -26,6 +26,7 @@ dynamodb_tables = {
     range_key      = "created_at"
 
     deletion_protection_enabled = true
+    point_in_time_recovery      = true
 
     attributes = [
       { name = "order_id", type = "S" },
