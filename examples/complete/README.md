@@ -6,7 +6,9 @@ Creates two tables showing both billing modes:
 - `orders`: PROVISIONED with a GSI, streams, deletion protection and
   read/write target-tracking auto scaling
 
-Values live in [`terraform.tfvars`](./terraform.tfvars).
+Both tables are encrypted with a customer managed KMS key created by the
+example. Table definitions live in
+[`terraform.tfvars`](./terraform.tfvars).
 
 ## Usage
 

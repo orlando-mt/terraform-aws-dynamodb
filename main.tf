@@ -1,4 +1,5 @@
 resource "aws_dynamodb_table" "this" {
+  # checkov:skip=CKV2_AWS_16:Auto scaling is configured via autoscaling_read/autoscaling_write on PROVISIONED tables, which creates aws_appautoscaling_target resources. Checkov cannot link those to the table through for_each.
   for_each = var.dynamodb_tables
 
   name         = each.value.name
